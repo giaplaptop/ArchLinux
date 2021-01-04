@@ -1,0 +1,87 @@
+fdisk -l
+
+fdisk </dev/sdX>
+
+g => n create partition
+
+  => t thay đổi type partition
+  +> w ghi và thoát
+  
+mkfs.fat -F32 </dev/sdXY>
+mkswap </dev/sdXY> +> tạo phân vùng swap
+
+mkfs.ext4 </dev/sdXY tạo phan vung root 
+
+mount </dev/sdXY> /mnt mount phân vùng root
+
+mount </dev/sdXY> /mnt/home tạo /home
+
+
+pacstrap /mnt base linux linux-firmware  cài đặt archlinux
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt truy cập archlinux
+
+ln -sf /usr/share/zoneinfo/America/Chicago /etc/localtime (tìm múi giờ: ls /usr/share/zoneinfo/ => enter)
+
+hwclock --systohc
+
+pacman -S nano
+
+nano /etc/locale.gen => bỏ comment dòng "en_US.UTF-8 UTF-8" => save
+
+nano /etc/hostname 
+    => add archlinux
+    => save
+    
+nano /etc/hosts 
+    => 127.0.0.1    localhost
+        ::1         localhost
+        127.0.0.1   archlinux.localdomain   archlinux
+    => save
+    
+passwd => nhập pass
+
+useradd -m giap
+passwd giap => nhập pass
+
+usermod -aG wheel,audio,video,optical,storage
+    giap
+    
+pacman -S sudo
+
+EDITOR=nano visudo => bỏ comment dòng "%wheel ALL=(ALL) ALL" => save
+
+pacman -S grub
+
+pacman -S efibootmgr dosfstools os-prober mtools
+
+mkdir /boot/EFI
+
+mount </dev/sdXY> /bôt/EFI : khởi động phân vùng EFI 
+
+grub-install --target=x86_64-efi --bootloader-id=grub_uefi --recheck
+
+grub-mkconfig -o /boot/grub/grub.cfg
+
+pacman -S networkmanager vim
+
+pacman -S git
+
+systemctl enable NetworkManager
+
+umount -l /mnt
+
+shutdown now
+
+=>  đã có thể đăng nhập 
+
+sudo pacman -Syu
+
+sudo pacman -S kde kde-applications xorg plasma
+
+systemctl enable sddm 
+
+
+
