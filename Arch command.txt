@@ -1,1 +1,17 @@
 https://wiki.archlinux.org/index.php/Pacman/Rosetta
+sudo pacman -Rnsu $(pacman -Qqs game)   => remove all game
+sudo pacman -Rnsu $(pacman -Qqs kmail)
+sudo pacman -Rnsu $(pacman -Qqs contact) 
+sudo pacman -Rnsu $(pacman -Qqs education) 
+sudo pacman -Rnsu $(pacman -Qqs akonadi) 
+sudo pacman -Rnsu $(pacman -Qqs kapp) 
+sudo pacman -Rnsu $(pacman -Qqs kcache) 
+sudo pacman -Rnsu $(pacman -Qqs kiriga) 
+sudo pacman -Rnsu $(pacman -Qqs kde connect)  
+sudo pacman -Rnsu $(pacman -Qqs kde log)
+sudo pacman -Rnsu $(pacman -Qqs kde im)  
+sudo pacman -Rns umbrello cervisia
+
+
+sudo pacman -Rs $(pacman -Qtdq)    => autoremove
+sudo pacman -Sc   => autoclean
