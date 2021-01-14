@@ -10,7 +10,7 @@ sudo pacman -Rnsu $(pacman -Qqs kiriga)
 sudo pacman -Rnsu $(pacman -Qqs kde connect)  
 sudo pacman -Rnsu $(pacman -Qqs kde log)
 sudo pacman -Rnsu $(pacman -Qqs kde im)  
-sudo pacman -Rns umbrello cervisia
+sudo pacman -Rns umbrello cervisia konversation kopete lokalize 
 
 
 sudo pacman -Rs $(pacman -Qtdq)    => autoremove
