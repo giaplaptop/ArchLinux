@@ -1,0 +1,2 @@
+-vm
+/usr/lib/jvm/jdk-11.0.9/bin
