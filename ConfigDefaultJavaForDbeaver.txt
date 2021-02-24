@@ -1,2 +1,4 @@
+open file: sudo nano /usr/share/dbeaver/dbeaver.ini 
+
 -vm
 /usr/lib/jvm/jdk-11.0.9/bin
